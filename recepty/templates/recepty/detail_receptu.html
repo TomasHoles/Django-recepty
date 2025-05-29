@@ -63,105 +63,26 @@
                 {% endif %}
                 <div class="text-lg text-gray-700 mb-6">{{ recept.popis }}</div>
 
-                {# --- Skutečné detaily receptu podle názvu --- #}
-                {% if recept.nazev == 'Svíčková na smetaně' %}
-                    <div class="mb-4 w-full">
-                        <h3 class="font-bold text-lg mb-2">Ingredience:</h3>
-                        <ul class="list-disc list-inside text-gray-700 mb-2">
-                            <li>800 g hovězí svíčkové</li>
-                            <li>150 g kořenové zeleniny (mrkev, celer, petržel)</li>
-                            <li>2 cibule</li>
-                            <li>100 g slaniny</li>
-                            <li>250 ml smetany ke šlehání</li>
-                            <li>2 lžíce octa</li>
-                            <li>2 lžíce cukru</li>
-                            <li>2 bobkové listy, nové koření, pepř, sůl</li>
-                            <li>olej, máslo</li>
-                        </ul>
-                        <h3 class="font-bold text-lg mb-2">Postup:</h3>
-                        <ol class="list-decimal list-inside text-gray-700">
-                            <li>Maso prošpikujte slaninou, osolte a opepřete.</li>
-                            <li>Opečte na oleji, přidejte zeleninu a cibuli, restujte.</li>
-                            <li>Přidejte koření, podlijte vodou, duste doměkka.</li>
-                            <li>Maso vyjměte, zeleninu rozmixujte, přidejte smetanu, dochuťte octem a cukrem.</li>
-                            <li>Podávejte s houskovým knedlíkem a brusinkami.</li>
-                        </ol>
-                    </div>
-                {% elif recept.nazev == 'Guláš' %}
-                    <div class="mb-4 w-full">
-                        <h3 class="font-bold text-lg mb-2">Ingredience:</h3>
-                        <ul class="list-disc list-inside text-gray-700 mb-2">
-                            <li>800 g hovězí kližky</li>
-                            <li>2 cibule</li>
-                            <li>3 stroužky česneku</li>
-                            <li>2 lžíce sladké papriky</li>
-                            <li>1 lžíce majoránky</li>
-                            <li>1 lžíce rajčatového protlaku</li>
-                            <li>sůl, pepř, sádlo</li>
-                        </ul>
-                        <h3 class="font-bold text-lg mb-2">Postup:</h3>
-                        <ol class="list-decimal list-inside text-gray-700">
-                            <li>Cibuli osmahněte na sádle, přidejte maso a opečte.</li>
-                            <li>Přidejte česnek, papriku, protlak, zalijte vodou.</li>
-                            <li>Osolte, opepřete, duste doměkka.</li>
-                            <li>Dochutťe majoránkou, podávejte s chlebem.</li>
-                        </ol>
-                    </div>
-                {% elif recept.nazev == 'Česnečka' %}
-                    <div class="mb-4 w-full">
-                        <h3 class="font-bold text-lg mb-2">Ingredience:</h3>
-                        <ul class="list-disc list-inside text-gray-700 mb-2">
-                            <li>6 stroužků česneku</li>
-                            <li>4 brambory</li>
-                            <li>1 l zeleninového vývaru</li>
-                            <li>majoránka, sůl, pepř</li>
-                            <li>chleba na krutony, sýr na posypání</li>
-                        </ul>
-                        <h3 class="font-bold text-lg mb-2">Postup:</h3>
-                        <ol class="list-decimal list-inside text-gray-700">
-                            <li>Brambory nakrájejte na kostičky, uvařte ve vývaru.</li>
-                            <li>Přidejte prolisovaný česnek, dochuťte.</li>
-                            <li>Přidejte krutony a sýr až na talíři.</li>
-                        </ol>
-                    </div>
-                {% elif recept.nazev == 'Kuřecí řízek' %}
-                    <div class="mb-4 w-full">
-                        <h3 class="font-bold text-lg mb-2">Ingredience:</h3>
-                        <ul class="list-disc list-inside text-gray-700 mb-2">
-                            <li>4 kuřecí prsa</li>
-                            <li>hladká mouka, vejce, strouhanka</li>
-                            <li>sůl, pepř, olej na smažení</li>
-                            <li>bramborová kaše na podávání</li>
-                        </ul>
-                        <h3 class="font-bold text-lg mb-2">Postup:</h3>
-                        <ol class="list-decimal list-inside text-gray-700">
-                            <li>Maso naklepejte, osolte, opepřete.</li>
-                            <li>Obalte v mouce, vejci a strouhance.</li>
-                            <li>Osmažte dozlatova na oleji.</li>
-                            <li>Podávejte s bramborovou kaší.</li>
-                        </ol>
-                    </div>
-                {% elif recept.nazev == 'Štrúdl' %}
-                    <div class="mb-4 w-full">
-                        <h3 class="font-bold text-lg mb-2">Ingredience:</h3>
-                        <ul class="list-disc list-inside text-gray-700 mb-2">
-                            <li>1 balení listového těsta</li>
-                            <li>4 jablka</li>
-                            <li>rozinky, skořice, cukr</li>
-                            <li>vejce na potření</li>
-                            <li>vanilková zmrzlina na podávání</li>
-                        </ul>
-                        <h3 class="font-bold text-lg mb-2">Postup:</h3>
-                        <ol class="list-decimal list-inside text-gray-700">
-                            <li>Jablka oloupejte, nastrouhejte, smíchejte s cukrem, skořicí a rozinkami.</li>
-                            <li>Těsto rozválejte, naplňte jablky, zaviňte.</li>
-                            <li>Potřete vejcem, pečte dozlatova.</li>
-                            <li>Podávejte s vanilkovou zmrzlinou.</li>
-                        </ol>
-                    </div>
-                {% endif %}
-                {# --- Konec detailů receptu --- #}
+                <!-- Sekce s ingrediencemi -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Ingredience</h2>
+                    <ul class="list-disc list-inside space-y-2">
+                        {% for ingredience in recept.ingredience_list %}
+                            <li class="text-gray-700">{{ ingredience }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
+                <!-- Sekce s postupem -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Postup přípravy</h2>
+                    <ol class="list-decimal list-inside space-y-4">
+                        {% for krok in recept.postup_list %}
+                            <li class="text-gray-700">{{ krok }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+                
                 <a href="{% url 'seznam_receptu' %}" class="inline-block text-orange-600 hover:underline font-semibold">&larr; Zpět na seznam</a>
             </div>
         </div>
