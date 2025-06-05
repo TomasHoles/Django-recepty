@@ -47,7 +47,7 @@
    python manage.py createsuperuser
    ```
 
-6被人: Spusťte vývojový server:
+6. Spusťte vývojový server:
    ```bash
    python manage.py runserver
    ```
@@ -73,8 +73,4 @@ Rád uvítám jakékoli příspěvky! Pokud chcete přispět:
 4. Pushněte změny (`git push origin feature/nova-funkce`).
 5. Vytvořte Pull Request.
 
-## Licence
-Tento projekt je licencován pod [MIT licencí](LICENSE).
 
-## Kontakt
-Pokud máte dotazy nebo návrhy, kontaktujte mě na [email@example.com](mailto:email@example.com) nebo vytvořte issue na GitHubu.
