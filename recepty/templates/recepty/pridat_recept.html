@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přidat nový recept</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
+            <div class="text-2xl font-bold text-orange-600">Recepty</div>
+            <nav class="mt-2 md:mt-0">
+                <a href="/" class="text-gray-700 hover:text-orange-600 mx-2 transition">Domů</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        {% if messages %}
+            <div class="mb-4">
+                {% for message in messages %}
+                    <div class="p-4 mb-2 rounded-lg {% if message.tags == 'success' %}bg-green-100 text-green-700{% elif message.tags == 'error' %}bg-red-100 text-red-700{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <!-- zbytek šablony zůstává stejný -->
+        <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Přidat nový recept</h1>
+            <form method="post" enctype="multipart/form-data" class="space-y-6">
+                {% csrf_token %}
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Název receptu</label>
+                    <input type="text" name="nazev" required class="w-full border border-gray-300 rounded px-3 py-2">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Popis</label>
+                    <textarea name="popis" required class="w-full border border-gray-300 rounded px-3 py-2 h-32"></textarea>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Kategorie</label>
+                    <select name="kategorie" required class="w-full border border-gray-300 rounded px-3 py-2">
+                        {% for kat in kategorie %}
+                        <option value="{{ kat.id }}">{{ kat.nazev }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Autor</label>
+                    <select name="kuchar" required class="w-full border border-gray-300 rounded px-3 py-2">
+                        {% for kuch in kuchari %}
+                        <option value="{{ kuch.id }}">{{ kuch.jmeno }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Obrázek</label>
+                    <input type="file" name="obrazek" accept="image/*" class="w-full">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Ingredience</label>
+                    <div id="ingredience-container" class="space-y-2">
+                        <div class="flex gap-2">
+                            <input type="text" name="ingredience[]" class="flex-1 border border-gray-300 rounded px-3 py-2" placeholder="Např. 200g mouky">
+                            <button type="button" onclick="pridatPole(this)" class="bg-green-500 text-white px-3 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Postup</label>
+                    <div id="postup-container" class="space-y-2">
+                        <div class="flex gap-2">
+                            <input type="text" name="postup[]" class="flex-1 border border-gray-300 rounded px-3 py-2" placeholder="Krok postupu">
+                            <button type="button" onclick="pridatPole(this)" class="bg-green-500 text-white px-3 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <a href="/" class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600">Zrušit</a>
+                    <button type="submit" class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">Přidat recept</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script>
+    function pridatPole(tlacitko) {
+        const container = tlacitko.parentElement.parentElement;
+        const novyRadek = tlacitko.parentElement.cloneNode(true);
+        const input = novyRadek.querySelector('input');
+        input.value = '';
+        container.appendChild(novyRadek);
+    }
+    </script>
+</body>
+</html>

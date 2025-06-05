@@ -22,5 +22,7 @@ urlpatterns = [
     # Stránky pro autory
     path('autori/', views.seznam_autoru, name='seznam_autoru'),
     path('autor/<int:autor_id>/', views.detail_autora, name='detail_autora'),
+    path('pridat-recept/', views.pridat_recept, name='pridat_recept'),
+    path('odebrat-recept/<int:pk>/', views.odebrat_recept, name='odebrat_recept'),
 ]
 
